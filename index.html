@@ -324,6 +324,95 @@
     }
     .toast.show{opacity:1;transform:translate(-50%,0)}
 
+
+    /* === Guided workflow / visible stage grouping === */
+    :root{--career:#7c3aed;--resume:#2563eb;--business:#0d9488}
+    .workflow-overview{margin:2px 0 22px}
+    .overview-heading{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:0 0 14px}
+    .overview-heading h2{margin:0;font-size:23px;letter-spacing:-.035em}
+    .overview-heading small{color:#64748b;font-weight:700}
+    .roadmap{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+    .roadmap-item{display:flex;flex-direction:column;gap:8px;text-decoration:none;min-width:0;border-radius:18px;padding:18px 16px;background:white;border:1.5px solid var(--line);transition:transform .18s,box-shadow .18s}
+    .roadmap-item:hover,.roadmap-item:focus-visible{transform:translateY(-2px);box-shadow:0 10px 24px rgba(15,23,42,.08)}
+    .roadmap-item.career{border-top:5px solid var(--career)}
+    .roadmap-item.resume{border-top:5px solid var(--resume)}
+    .roadmap-item.business{border-top:5px solid var(--business)}
+    .roadmap-kicker{font-size:11px;font-weight:900;letter-spacing:.06em;color:#64748b}
+    .roadmap-title{font-size:17px;font-weight:950;color:var(--dark);line-height:1.3}
+    .roadmap-detail{font-size:12px;color:#64748b;line-height:1.65}
+    .roadmap-count{font-size:12px;font-weight:850;color:#334155}
+    .session-status{margin:14px 0 0;display:flex;align-items:center;flex-wrap:wrap;gap:10px;padding:12px 16px;border-radius:15px;background:#f8fafc;border:1px solid #dbe2ee}
+    .session-status .session-dot{height:9px;width:9px;border-radius:50%;background:#94a3b8;flex-shrink:0}
+    .session-status.is-copied .session-dot{background:var(--success)}
+    .session-status strong{font-size:13px;color:#1e293b}
+    .session-status .session-caption{font-size:12px;color:#64748b}
+    .step-group{scroll-margin-top:100px;--group-color:var(--career);--group-tint:#f7f1ff;--group-border:#ded0ff;position:relative;margin:20px 0 32px;padding:16px;border-radius:30px;background:var(--group-tint);border:1.5px solid var(--group-border)}
+    .step-group.group-resume{--group-color:var(--resume);--group-tint:#f0f6ff;--group-border:#cfe0ff}
+    .step-group.group-business{--group-color:var(--business);--group-tint:#ecfdf9;--group-border:#b8ede1}
+    .group-heading{display:flex;align-items:center;gap:16px;padding:10px 11px 20px}
+    .group-number{height:60px;min-width:68px;border-radius:19px;background:var(--group-color);color:#fff;display:grid;place-items:center;font-size:26px;font-weight:950;letter-spacing:-.03em;box-shadow:0 9px 18px rgba(15,23,42,.09)}
+    .group-heading-content{flex:1;min-width:0}
+    .group-heading-kicker{font-size:11px;letter-spacing:.08em;font-weight:900;color:var(--group-color)}
+    .group-heading h2{font-size:clamp(20px,2.7vw,27px);line-height:1.25;margin:4px 0 5px;letter-spacing:-.04em}
+    .group-heading p{margin:0;color:#475569;font-size:13px;line-height:1.65}
+    .group-progress{background:#fff;border:1px solid var(--group-border);border-radius:999px;padding:10px 13px;color:var(--group-color);font-size:12px;font-weight:900;white-space:nowrap}
+    .group-progress.is-complete{background:#dcfce7;border-color:#86efac;color:#166534}
+    .step-group .section{margin:0 0 14px;opacity:1;transform:none;background:#fff;border:1px solid var(--group-border);box-shadow:0 10px 32px rgba(15,23,42,.035);border-left:6px solid var(--group-color)}
+    .step-group .section:last-child{margin-bottom:0}
+    .step-group .section h2{font-size:clamp(27px,3.4vw,39px)}
+    .step-group .section .step-badge{padding:11px 17px;border:1.5px solid var(--group-border);font-size:24px;line-height:1.1;background:var(--group-tint);color:var(--group-color);border-radius:15px;letter-spacing:-.04em;margin-bottom:14px}
+    .step-group .section-head{flex-wrap:wrap;align-items:center;gap:14px}
+    .step-group .section-head > div:first-child{min-width:0;flex:1}
+    .step-group .section .copy-btn.primary-copy{max-width:100%;white-space:normal;text-align:center}
+    .step-checkbar{display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap;padding:14px 16px;margin:16px 0 22px;border:1px solid #e2e8f0;border-radius:18px;background:#f8fafc}
+    .step-checkbar .check-copy{display:flex;flex-wrap:wrap;align-items:center;gap:9px;margin-bottom:6px}
+    .step-checkbar .copy-indicator{display:inline-flex;align-items:center;gap:5px;padding:5px 9px;border:1px solid #e2e8f0;background:#fff;border-radius:999px;font-weight:800;font-size:11px;color:#64748b}
+    .step-checkbar .copy-indicator.is-copied{border-color:#a7f3d0;background:#ecfdf5;color:#047857}
+    .step-checkbar .copy-indicator.is-dirty{border-color:#fed7aa;background:#fff7ed;color:#9a3412}
+    .step-checkbar strong{display:block;font-size:14px;color:#1e293b}
+    .step-checkbar p{color:#64748b;font-size:12px;margin:4px 0 0;line-height:1.6;max-width:570px}
+    .verify-btn{cursor:pointer;border:1.5px solid #cbd5e1;background:#fff;border-radius:12px;color:#334155;padding:12px 14px;font-size:13px;font-weight:900;line-height:1.4;min-height:44px}
+    .verify-btn:hover{border-color:var(--group-color);color:var(--group-color)}
+    .verify-btn[aria-pressed="true"]{border-color:#86efac;background:#dcfce7;color:#166534}
+    .step-checkbar.is-complete{border-color:#bbf7d0;background:#f0fdf4}
+    .step-checkbar.is-complete strong{color:#166534}
+    .handoff-alert{margin:0 0 18px;padding:18px 19px;background:linear-gradient(120deg,#fff7ed,#fffbeb);border:2px solid #fdba74;border-radius:17px;color:#9a3412;font-size:14px;line-height:1.75}
+    .handoff-alert strong{font-size:16px;display:block;margin-bottom:3px}
+    .handoff-alert.is-ready{background:linear-gradient(120deg,#f0fdf4,#ecfdf5);border-color:#86efac;color:#166534}
+    .handoff-alert a{color:inherit;font-weight:900;text-underline-offset:3px}
+    .nav-group-label{display:flex;align-items:center;gap:7px;font-size:11px;font-weight:950;letter-spacing:.01em;color:#475569;margin:12px 6px 4px;padding:8px 9px;border-radius:10px;background:#f1f5f9}
+    .nav-group-label::before{content:"";width:7px;height:7px;flex:0 0 7px;border-radius:50%;background:var(--nav-group-color)}
+    .nav-group-label.career{--nav-group-color:var(--career);background:#f3e8ff;color:#6b21a8}
+    .nav-group-label.resume{--nav-group-color:var(--resume);background:#eff6ff;color:#1d4ed8}
+    .nav-group-label.business{--nav-group-color:var(--business);background:#f0fdfa;color:#0f766e}
+    .nav-link{align-items:center}
+    .nav-link .nav-state{font-size:12px;margin-left:auto;color:#94a3b8;white-space:nowrap}
+    .nav-link .nav-state.is-complete{color:#16a34a;font-weight:950}
+    .nav-link.career .nav-num{color:#6d28d9;background:#ede9fe}
+    .nav-link.resume .nav-num{color:#1d4ed8;background:#dbeafe}
+    .nav-link.business .nav-num{color:#0f766e;background:#ccfbf1}
+    .nav-link.active{outline:1px solid #d1d5db}
+    .nav-link:focus-visible,.verify-btn:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+    @media(max-width:900px){
+      .side{align-items:center}
+      .nav-group-label{display:none}
+      .nav-link .nav-state{font-size:11px;margin-left:4px}
+      .nav-link{flex:0 0 auto}
+    }
+    @media(max-width:650px){
+      .roadmap{grid-template-columns:1fr;gap:8px}
+      .roadmap-item{padding:13px 15px;gap:3px}
+      .group-heading{align-items:flex-start;flex-wrap:wrap;gap:10px;padding:8px 5px 15px}
+      .group-number{height:48px;min-width:52px;font-size:22px;border-radius:13px}
+      .group-heading-content{flex-basis:calc(100% - 66px)}
+      .group-progress{margin-left:62px}
+      .step-group{padding:10px;border-radius:24px;margin-bottom:22px}
+      .step-group .section{padding:17px;border-radius:19px;border-left-width:4px}
+      .step-group .section .step-badge{font-size:21px;padding:10px 14px}
+      .step-checkbar{align-items:stretch;gap:12px;padding:13px}
+      .verify-btn{width:100%}
+    }
+
     @media (max-width:900px){
       .hero{grid-template-columns:1fr;padding-top:70px}
       .hero-card{max-width:520px;transform:none}
@@ -370,6 +459,196 @@
       *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
       .section{opacity:1;transform:none}
     }
+    @media(max-width:900px){.layout .side{margin:0;width:100%;min-width:0;border-radius:16px;overflow-x:auto}}
+
+    /* v3: compact step cards, mandatory Step 01 onboarding, form submission checkpoint */
+    .hero{padding:46px 0 30px;grid-template-columns:minmax(0,1fr) 245px;gap:18px}
+    .hero h1{font-size:clamp(36px,4.5vw,59px);line-height:1.06}
+    .hero p{font-size:15px;line-height:1.6}
+    .hero-card{padding:14px;border-radius:21px;transform:none}
+    .hero-card .window{padding:13px;border-radius:12px}
+    .hero-card small{font-size:11px;margin-top:9px}
+    .hero-cta{margin-top:17px}
+    .guide-compact{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+    .guide-compact .step-badge{margin:0;white-space:nowrap}
+    .guide-compact h2{font-size:18px;margin:0 0 4px}
+    .guide-compact p{font-size:13px;line-height:1.5;color:#64748b;margin:0}
+    .content #guide{padding:16px 20px;margin-bottom:16px}
+    .overview-heading{margin-bottom:10px}
+    .overview-heading h2{font-size:20px}
+    .roadmap-item{padding:12px 14px;gap:4px;border-radius:15px}
+    .roadmap-title{font-size:15px}
+    .roadmap-detail{font-size:12px}
+    .session-status{margin-top:10px}
+    .step-group{padding:13px;margin-bottom:22px}
+    .group-heading{padding:5px 9px 13px;gap:10px}
+    .group-number{height:48px;min-width:54px;font-size:22px;border-radius:14px}
+    .group-heading h2{font-size:22px}
+    .step-group .section{padding:22px 24px;border-radius:22px;margin-bottom:10px}
+    .step-group .section h2{font-size:clamp(24px,3vw,31px)}
+    .step-group .section .step-badge{font-size:19px;padding:8px 13px;margin-bottom:7px}
+    .step-group .section-head{margin-bottom:12px}
+    .section .desc{margin-top:5px;font-size:13px;line-height:1.55}
+    .step-01-status,.step-mini-panel{display:flex;align-items:center;gap:11px;flex-wrap:wrap;background:#f8fafc;border:1px solid #e2e8f0;border-radius:14px;padding:11px 13px;margin-bottom:12px}
+    .step-01-status{font-size:12px;color:#64748b}
+    .copy-indicator{font-size:12px;font-weight:850;background:#fff;border:1px solid #cbd5e1;border-radius:99px;padding:7px 11px;color:#64748b;white-space:nowrap}
+    .copy-indicator.is-copied{background:#ecfdf5;border-color:#6ee7b7;color:#047857}
+    .copy-indicator.is-dirty{background:#fff7ed;border-color:#fdba74;color:#9a3412}
+    .step-short-help{flex:1;min-width:180px;font-size:12px;line-height:1.5;color:#64748b}
+    .step-mini-panel .verify-btn{margin-left:auto;white-space:normal;min-height:40px;padding:9px 12px}
+    .step-mini-panel.is-complete{background:#ecfdf5;border-color:#a7f3d0}
+    .profile-box{margin:12px 0 0;padding:20px;border-radius:17px;box-shadow:none}
+    .profile-box h3{font-size:19px}
+    .profile-box p{font-size:13px}
+    .profile-box-head{margin-bottom:14px}
+    .profile-grid{gap:11px}
+    .profile-grid .field{gap:5px}
+    .profile-grid .field label{font-size:13px}
+    .profile-grid .field input,.profile-grid .field textarea{min-height:43px;padding:9px 12px;font-size:14px;border-radius:10px}
+    .profile-grid .field textarea{min-height:60px}
+    .profile-grid .field small{font-size:11px}
+    .profile-note{margin-top:12px;padding:10px 12px;border-radius:11px;font-size:11px}
+    .profile-actions{margin-top:12px;padding-top:12px}
+    .profile-copy{min-height:47px;font-size:14px}
+    .prompt-details{margin-top:10px}
+    .prompt-details summary{padding:11px 13px;font-size:12px;background:#f8fafc;color:#64748b}
+    .lock-banner{display:none;align-items:center;gap:10px;background:#eef2f7;border:1px solid #cbd5e1;border-radius:15px;padding:13px 15px;margin-bottom:14px;color:#334155;flex-wrap:wrap}
+    .lock-banner > span{font-size:17px}
+    .lock-banner strong{font-size:14px}
+    .lock-banner small{flex-basis:100%;margin-left:30px;color:#64748b;font-size:12px}
+    .section.is-locked .lock-banner{display:flex}
+    .section.is-locked > :not(.lock-banner){opacity:.46;filter:grayscale(.48);pointer-events:none;user-select:none}
+    .section.is-locked .copy-btn,.section.is-locked .verify-btn{cursor:not-allowed}
+    .nav-link.is-locked,.roadmap-item.is-locked{opacity:.5;cursor:not-allowed;filter:grayscale(.7)}
+    .nav-link.is-locked .nav-state{color:#64748b}
+    .copy-btn:disabled,.verify-btn:disabled{background:#e2e8f0!important;border-color:#cbd5e1!important;color:#64748b!important;cursor:not-allowed!important;box-shadow:none!important;transform:none!important}
+    .submission-card{display:flex;align-items:center;gap:13px;background:linear-gradient(125deg,#f0f9ff,#eff6ff);border:1.5px solid #bfdbfe;border-radius:17px;padding:16px 17px;margin:14px 0 12px}
+    .submission-icon{width:40px;height:40px;flex:0 0 40px;display:grid;place-items:center;background:#dbeafe;color:#1d4ed8;font-size:23px;border-radius:12px}
+    .submission-copy{flex:1;min-width:0}
+    .submission-eyebrow{display:block;font-size:10px;font-weight:950;letter-spacing:.05em;color:#2563eb;margin-bottom:3px}
+    .submission-copy h3{font-size:16px;margin:0 0 4px;color:#1e3a8a}
+    .submission-copy p{font-size:12px;color:#475569;line-height:1.5;margin:0 0 5px}
+    .submission-copy small{font-size:11px;color:#64748b;line-height:1.5}
+    .form-link{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;text-align:center;min-height:45px;text-decoration:none;font-size:13px;font-weight:900;padding:10px 14px;border-radius:12px;background:#1d4ed8;color:white}
+    .form-link.is-disabled{background:#dbe3ef;color:#64748b;cursor:not-allowed}
+    .form-link:not(.is-disabled):hover{background:#1e40af}
+    .submission-card.is-ready{border-color:#93c5fd;background:linear-gradient(120deg,#eff6ff,#ecfeff)}
+    .profile-box .profile-note b{display:inline}
+    .group-progress{padding:7px 10px}
+    @media(max-width:900px){.hero{grid-template-columns:1fr;padding-top:45px}.hero-card{display:none}.layout{gap:12px}}
+    @media(max-width:650px){
+      .hero{padding:34px 0 20px}.hero h1{font-size:38px}.hero p{font-size:13px}
+      .overview-heading small{display:none}.roadmap{gap:7px}.roadmap-item{padding:11px 12px}
+      .step-group{padding:9px}.group-heading p{font-size:12px}.group-progress{margin-left:0}
+      .step-group .section{padding:16px 14px}
+      .step-group .section h2{font-size:24px}
+      .step-mini-panel .verify-btn{width:100%}
+      .step-short-help{min-width:0;flex-basis:100%}
+      .step-01-status{align-items:flex-start}
+      .submission-card{align-items:flex-start;flex-wrap:wrap;padding:14px}
+      .submission-copy{flex-basis:calc(100% - 56px)}
+      .form-link{width:100%}
+      .profile-grid{grid-template-columns:1fr;gap:10px}
+      .profile-box{padding:14px}
+      .profile-copy,.profile-reset{width:100%}
+      .topbar .top-actions .mini:last-child{font-size:11px;padding:8px}
+    }
+
+
+    /* v4: 한 번 복사하면 다음 STEP 잠금 해제, 잠긴 STEP은 제목만 */
+    .step-group .section.is-locked{
+      padding:19px 22px;
+      background:#f8fafc;
+      border-color:#dbe3ed;
+      border-left-color:#cbd5e1;
+      box-shadow:none;
+    }
+    .step-group .section.is-locked > :not(.section-head){display:none!important}
+    .step-group .section.is-locked .section-head{margin:0;gap:10px;align-items:center;flex-wrap:nowrap}
+    .step-group .section.is-locked .section-head > div:first-child{
+      display:flex;align-items:center;gap:11px;min-width:0;flex:1;flex-wrap:wrap;
+    }
+    .step-group .section.is-locked .section-head .desc,
+    .step-group .section.is-locked .section-head .copy-btn{display:none!important}
+    .step-group .section.is-locked .section-head::after{
+      content:"🔒 잠김";flex:0 0 auto;font-size:13px;font-weight:900;
+      color:#64748b;background:#e2e8f0;border-radius:999px;padding:9px 12px;
+    }
+    .step-group .section.is-locked .step-badge{
+      margin:0;padding:7px 10px;font-size:14px;color:#64748b;
+      border-color:#cbd5e1;background:#e2e8f0;border-radius:9px;
+    }
+    .step-group .section.is-locked h2{font-size:21px;line-height:1.3;color:#475569;margin:0}
+    .step-mini-panel{gap:9px;margin-top:3px}
+    .step-short-help{font-size:13px;line-height:1.6;color:#475569}
+    .copy-btn.primary-copy,.profile-copy{min-height:52px;font-size:15px}
+    .form-link{min-height:48px;font-size:14px}
+    @media(max-width:650px){
+      .step-group .section.is-locked{padding:16px 14px}
+      .step-group .section.is-locked .section-head > div:first-child{gap:8px}
+      .step-group .section.is-locked .step-badge{font-size:12px;padding:6px 8px}
+      .step-group .section.is-locked h2{font-size:17px}
+      .step-group .section.is-locked .section-head::after{font-size:11px;padding:7px 9px}
+      .step-mini-panel{flex-direction:column;align-items:flex-start}
+      .step-short-help{min-width:0}
+    }
+
+    /* 첫 화면 간소화: STEP 01이 바로 보이도록 소개 화면과 중복 정보를 축소 */
+    .hero{display:block;padding:23px 0 15px}
+    .hero h1{font-size:clamp(32px,3.5vw,47px);line-height:1.15;letter-spacing:-.055em;margin:10px 0 8px}
+    .hero p{font-size:15px;max-width:920px;color:#475569;line-height:1.6}
+    .hero-cta{margin-top:14px}
+    .hero-cta .btn{padding:12px 19px;min-height:46px}
+    .hero-card{display:none!important}
+    .workflow-overview{margin:0 0 13px}
+    .overview-heading{margin:0 0 9px}
+    .overview-heading h2{font-size:18px}
+    .overview-heading small{font-size:11px}
+    .roadmap-item{padding:10px 14px;gap:4px}
+    .roadmap-kicker{font-size:10px}
+    .roadmap-title{font-size:15px}
+    .roadmap-detail{display:none}
+    .roadmap-count{font-size:12px}
+    .session-status{padding:9px 12px;margin-top:8px}
+    .progress-dock{display:none!important}
+    .group-heading{padding-bottom:9px}
+    .step-group{margin:12px 0 25px}
+    @media(max-width:650px){
+      .hero{padding:19px 0 12px}
+      .hero h1{font-size:31px;margin:9px 0}
+      .hero p{font-size:13px}
+      .hero-cta{margin-top:11px}
+      .roadmap{grid-template-columns:1fr;gap:6px}
+      .roadmap-item{padding:9px 12px}
+      .roadmap-item .roadmap-kicker{font-size:10px}
+      .roadmap-item .roadmap-count{font-size:11px}
+      .session-status{gap:8px}
+      .session-caption{width:100%}
+      .group-heading h2{font-size:19px}
+    }
+
+    @media(max-width:650px){
+      .step-group .section.is-locked .section-head{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px}
+      .step-group .section.is-locked .section-head > div:first-child{display:flex;flex-direction:column;align-items:flex-start;gap:4px}
+      .step-group .section.is-locked .section-head::after{align-self:center}
+    }
+
+    /* 짧은 이용 가이드: 3개 묶음 바로 아래에서 사용 순서를 확인 */
+    .quick-guide{
+      display:grid;grid-template-columns:auto minmax(0,1fr);align-items:center;
+      gap:4px 15px;margin:12px 0 0;padding:13px 16px;
+      background:#fff;border:1px solid #dbe2ee;border-radius:14px;
+    }
+    .quick-guide > strong{font-size:14px;font-weight:900;color:#111827}
+    .quick-guide p{margin:0;font-size:14px;line-height:1.65;color:#334155}
+    .quick-guide p b{font-weight:800}
+    .quick-guide small{grid-column:2;font-size:12px;line-height:1.6;color:#64748b}
+    .quick-guide small b{color:#334155}
+    @media(max-width:650px){
+      .quick-guide{grid-template-columns:1fr;gap:6px;padding:12px 14px}
+      .quick-guide p{font-size:13px}
+      .quick-guide small{grid-column:1;font-size:12px}
+    }
   </style>
 </head>
 <body>
@@ -384,10 +663,7 @@
         <div class="brand-mark">AI</div>
         <span>Career Prompt Hub</span>
       </div>
-      <div class="top-actions">
-        <button class="mini" id="scrollTopBtn">처음으로</button>
-        <button class="mini" id="copyCurrentBtn">현재 프롬프트 복사</button>
-      </div>
+
     </div>
   </header>
 
@@ -395,15 +671,11 @@
     <section class="hero">
       <div>
         <span class="eyebrow"><i></i> AI 커리어 리디자인 캠프</span>
-        <h1>한 단계씩 따라가면,<br><span class="gradient-text">AI가 함께 정리해드립니다.</span></h1>
+        <h1>프롬프트 복사로<br><span class="gradient-text">6단계 따라하기</span></h1>
         <p>
-          커리어 인터뷰부터 이력서·자기소개서, 사업 아이템, 사업계획서, 랜딩페이지까지.
-          어려운 설정 없이, 화면의 안내대로 입력하고 복사해 AI와 대화하면 되는 참여자용 안내 페이지입니다.
+          STEP 01부터 순서대로 복사하세요. <strong>복사하면 다음 STEP이 자동으로 열립니다.</strong><br>AI와의 작업이 끝나면 다음 STEP으로 이동하세요.
         </p>
-        <div class="hero-cta">
-          <a class="btn primary" href="#career-interview">1단계 시작하기 →</a>
-          <a class="btn secondary" href="#guide">사용 방법 보기</a>
-        </div>
+
       </div>
 
       <div class="hero-card">
@@ -423,48 +695,55 @@
     <div class="layout">
       <nav class="side" aria-label="단계별 이동">
         <div class="side-title">Progress</div>
-        <a class="nav-link active" href="#career-interview"><span class="nav-num">1</span><span>커리어 인터뷰</span></a>
-        <a class="nav-link" href="#career-result"><span class="nav-num">2</span><span>인터뷰 결과 만들기</span></a>
-        <a class="nav-link" href="#resume"><span class="nav-num">3</span><span>이력서·자소서 만들기</span></a>
-        <a class="nav-link" href="#business-idea"><span class="nav-num">4</span><span>사업 아이템 찾기</span></a>
-        <a class="nav-link" href="#business-plan"><span class="nav-num">5</span><span>사업계획서 만들기</span></a>
-        <a class="nav-link" href="#landing"><span class="nav-num">6</span><span>랜딩페이지 만들기</span></a>
+        <div class="nav-group-label career">묶음 01 · 인터뷰 + 결과 (1–2)</div>
+        <a class="nav-link career active" href="#career-interview"><span class="nav-num">01</span><span>커리어 인터뷰</span><span class="nav-state" data-nav-state="1">○</span></a>
+        <a class="nav-link career" href="#career-result"><span class="nav-num">02</span><span>인터뷰 결과 확인</span><span class="nav-state" data-nav-state="2">○</span></a>
+        <div class="nav-group-label resume">묶음 02 · 취업 서류 (3)</div>
+        <a class="nav-link resume" href="#resume"><span class="nav-num">03</span><span>이력서·자소서</span><span class="nav-state" data-nav-state="3">○</span></a>
+        <div class="nav-group-label business">묶음 03 · 사업화 (4–6)</div>
+        <a class="nav-link business" href="#business-idea"><span class="nav-num">04</span><span>사업 아이템</span><span class="nav-state" data-nav-state="4">○</span></a>
+        <a class="nav-link business" href="#business-plan"><span class="nav-num">05</span><span>사업계획서</span><span class="nav-state" data-nav-state="5">○</span></a>
+        <a class="nav-link business" href="#landing"><span class="nav-num">06</span><span>랜딩페이지</span><span class="nav-state" data-nav-state="6">○</span></a>
       </nav>
 
       <div class="content">
-        <section class="section" id="guide">
-          <div class="section-head">
-            <div>
-              <span class="step-badge">사용 방법</span>
-              <h2>입력 → 복사 → AI와 대화</h2>
-              <p class="desc">1단계는 아래 기본정보를 먼저 입력하면 됩니다. 입력한 내용이 자동으로 프롬프트에 들어갑니다.</p>
-            </div>
-          </div>
-          <div class="simple-flow" aria-label="사용 순서">
-            <div><b>① 기본정보 입력</b>아는 내용만 편하게 적습니다.</div>
-            <div><b>② 버튼 한 번</b>완성된 프롬프트를 복사합니다.</div>
-            <div><b>③ AI에 붙여넣기</b>질문에 하나씩 답하면 됩니다.</div>
-          </div>
-          <div class="tip">
-            <b>TIP.</b> 모르는 항목은 비워도 괜찮습니다. AI가 꼭 필요한 내용만 한 번에 하나씩 다시 물어봅니다.<br><b>STEP 02부터 STEP 06까지는 가능하면 같은 AI 대화창을 계속 사용하세요.</b> 앞 단계 결과를 다시 복사하는 일을 줄일 수 있습니다.
-          </div>
-        </section>
 
+        <div class="workflow-overview" aria-labelledby="workflow-title">
+          <div class="overview-heading"><h2 id="workflow-title">3개 묶음으로 진행합니다</h2><small>복사하면 다음 단계가 열립니다</small></div>
+          <div class="roadmap">
+            <a href="#group-career" class="roadmap-item career"><span class="roadmap-kicker">PHASE 01 · STEP 01–02</span><span class="roadmap-title">인터뷰 → Career DNA</span><span class="roadmap-detail">12문항 인터뷰 → Career DNA → 구글폼 ① 제출</span><span class="roadmap-count" data-group-count="career">0 / 2 복사</span></a>
+            <a href="#group-resume" class="roadmap-item resume"><span class="roadmap-kicker">PHASE 02 · STEP 03</span><span class="roadmap-title">이력서 · 자기소개서</span><span class="roadmap-detail">Career DNA로 이력서·자소서 작성</span><span class="roadmap-count" data-group-count="resume">0 / 1 복사</span></a>
+            <a href="#group-business" class="roadmap-item business"><span class="roadmap-kicker">PHASE 03 · STEP 04–06</span><span class="roadmap-title">사업 아이템 → 계획서 → 랜딩페이지</span><span class="roadmap-detail">아이템 → 계획서 → 페이지 → 구글폼 제출</span><span class="roadmap-count" data-group-count="business">0 / 3 복사</span></a>
+          </div>
+          <aside class="quick-guide" aria-label="이용 가이드">
+            <strong>이용 가이드</strong>
+            <p><b>① 기본정보 입력</b> → <b>② 프롬프트 복사 후 AI에 붙여넣기</b> → <b>③ AI 답변 확인 후 다음 STEP</b></p>
+            <small>같은 AI 대화창에서 이어서 진행하고, <b>STEP 02와 STEP 06이 끝나면 구글폼에 제출</b>하세요.</small>
+          </aside>
+          <div class="session-status" id="sessionStatus" aria-live="polite">
+            <span class="session-dot" aria-hidden="true"></span><strong id="lastCopiedPrompt">최근 복사: 아직 없음</strong>
+            <span class="session-caption" id="nextAction">추천 순서: STEP 01부터 시작</span>
+          </div>
+        </div>
+
+        <div class="step-group group-career" id="group-career" data-group="career">
+          <div class="group-heading">
+            <span class="group-number">01</span>
+            <div class="group-heading-content"><span class="group-heading-kicker">PHASE 01 · STEP 01 + 02</span><h2>나의 커리어 분석</h2><p>인터뷰를 끝낸 후 결과를 정리하고 제출합니다.</p></div>
+            <span class="group-progress" data-group-progress="career">0 / 2 복사</span>
+          </div>
         <section class="section" id="career-interview" data-step="1">
           <div class="section-head">
-            <div>
-              <span class="step-badge">STEP 01</span>
-              <h2>커리어 인터뷰</h2>
-              <p class="desc">가치관과 실제 경험을 연결해 나의 강점과 커리어 자산을 찾는 단계입니다.</p>
-            </div>
+            <div><span class="step-badge">STEP 01</span><h2>커리어 인터뷰</h2>
+            <p class="desc">기본정보 입력 → 프롬프트 복사 → AI와 12문항 인터뷰</p></div>
           </div>
-
+          <div class="step-01-status"><span class="copy-indicator" data-copy-indicator="1">○ 아직 복사 전</span><span>프롬프트를 복사하면 STEP 02가 열립니다.</span></div>
           <div class="profile-box" aria-labelledby="profile-title">
             <div class="profile-box-head">
               <div>
                 <span class="profile-step">먼저</span>
                 <h3 id="profile-title">기본정보를 입력해주세요</h3>
-                <p>한 번만 입력하면 아래 커리어 인터뷰 프롬프트에 자동으로 들어갑니다.<br>모르는 내용은 비워두셔도 됩니다.</p>
+                <p>아는 항목만 입력하세요. 비워둬도 진행할 수 있습니다.</p>
               </div>
             </div>
 
@@ -481,7 +760,7 @@
               <div class="field full">
                 <label for="profile-career">현재 하고 있는 일 또는 주요 경험</label>
                 <textarea id="profile-career" placeholder="예: 음식점 운영 8년, 판매직 경험, 육아 후 재취업 준비 등"></textarea>
-                <small>회사 경력뿐 아니라 자영업, 아르바이트, 돌봄, 학업, 활동 경험도 괜찮습니다.</small>
+                <small>자영업·아르바이트·돌봄 경험도 가능합니다.</small>
               </div>
 
               <div class="field full">
@@ -512,7 +791,7 @@
 
             <div class="profile-note">
               <b>개인정보 안내</b><br>
-              현재 이 페이지에서는 입력한 내용을 별도 서버로 전송하거나 저장하지 않습니다. 입력값은 이 화면에서 1단계 프롬프트를 만드는 데만 사용됩니다.
+              입력한 기본정보는 서버로 보내거나 저장하지 않습니다. 프롬프트 복사 상태만 이 브라우저에 저장됩니다.
             </div>
 
             <div class="profile-actions">
@@ -923,33 +1202,27 @@
           </details>
         </section>
 
-        <section class="section" id="career-result" data-step="2">
+        <section class="section is-locked" id="career-result" data-step="2">
           <div class="section-head">
             <div>
               <span class="step-badge">STEP 02</span>
               <h2>인터뷰 결과 만들기</h2>
-              <p class="desc">방금 끝낸 커리어 인터뷰를 Career DNA와 제출용 결과로 정리합니다.</p>
+              <p class="desc">STEP 01의 12개 질문이 끝나면 Career DNA를 정리하세요.</p>
             </div>
-            <button class="copy-btn primary-copy" data-copy="prompt-career-result">결과 만들기 프롬프트 복사 →</button>
+            <button type="button" class="copy-btn primary-copy" data-copy="prompt-career-result">프롬프트 복사하기 <span aria-hidden="true">→</span></button>
+          </div>
+          <div class="step-mini-panel">
+            <span class="copy-indicator" data-copy-indicator="2">○ 아직 복사 전</span>
+            <span class="step-short-help">AI에서 결과가 나오면 확인하고 구글폼 ①에 제출하세요.</span>
           </div>
 
-          <div class="tip">
-            <b>인터뷰를 모두 마쳤나요?</b><br>
-            STEP 01에서 사용한 <b>같은 AI 대화창</b>을 그대로 사용하세요. 새 대화창을 열 필요가 없습니다.
+          
+          <div class="submission-card" data-form-card="2">
+            <div class="submission-icon" aria-hidden="true">↗</div>
+            <div class="submission-copy"><span class="submission-eyebrow">제출 체크포인트 · STEP 02</span>
+              <h3>Career DNA · 구글폼 ① 제출</h3><p>AI의 Career DNA 결과를 확인하고 제출하세요.</p><small data-form-note="2">프롬프트 복사 후 구글폼 링크를 이용하세요.</small></div>
+            <a class="form-link is-disabled" data-form-link="2" aria-disabled="true" tabindex="-1" role="link">구글폼 01 제출하기 ↗</a>
           </div>
-
-          <div class="simple-flow" aria-label="STEP 02 사용 순서">
-            <div><b>① 기존 AI 대화창 열기</b>방금 인터뷰한 대화창을 그대로 둡니다.</div>
-            <div><b>② 프롬프트 복사</b>위의 ‘결과 만들기 프롬프트 복사’ 버튼을 누릅니다.</div>
-            <div><b>③ 그대로 붙여넣기</b>같은 AI 대화창에 붙여넣으면 결과가 자동으로 정리됩니다.</div>
-          </div>
-
-          <div class="profile-note">
-            <b>중요</b><br>
-            STEP 02 결과는 다음 단계인 이력서·자기소개서 작성에서도 그대로 이어서 사용합니다.
-            결과가 나온 뒤에도 같은 AI 대화창을 닫지 않는 것이 가장 간단합니다.
-          </div>
-
           <details class="prompt-details">
             <summary>AI에 전달되는 STEP 02 프롬프트 내용 보기</summary>
             <div class="prompt-wrap">
@@ -1727,31 +2000,25 @@ Google Form에 그대로 복사하여 붙여넣을 수 있는
           </details>
         </section>
 
-        <section class="section" id="resume" data-step="3">
+        </div><!-- /PHASE 01: STEP 01–02 -->
+        <div class="step-group group-resume" id="group-resume" data-group="resume">
+          <div class="group-heading">
+            <span class="group-number">02</span>
+            <div class="group-heading-content"><span class="group-heading-kicker">PHASE 02 · STEP 03</span><h2>취업 서류 만들기</h2><p>Career DNA 결과로 취업 서류를 만듭니다.</p></div>
+            <span class="group-progress" data-group-progress="resume">0 / 1 복사</span>
+          </div>
+        <section class="section is-locked" id="resume" data-step="3">
           <div class="section-head">
             <div>
               <span class="step-badge">STEP 03</span>
               <h2>이력서 · 자기소개서 만들기</h2>
-              <p class="desc">Career DNA를 이어서 사용해 제공된 이력서 양식의 작성 자료와 자기소개서 완성문을 만듭니다.</p>
+              <p class="desc">STEP 02에서 만든 Career DNA를 활용합니다.</p>
             </div>
-            <button class="copy-btn primary-copy" data-copy="prompt-resume">이력서·자소서 프롬프트 복사 →</button>
+            <button type="button" class="copy-btn primary-copy" data-copy="prompt-resume">프롬프트 복사하기 <span aria-hidden="true">→</span></button>
           </div>
-
-          <div class="tip">
-            <b>STEP 02 결과가 나왔나요?</b><br>
-            이번에도 <b>같은 AI 대화창을 그대로 사용</b>하면 됩니다. Career DNA 결과를 다시 복사해 붙여넣을 필요가 없습니다.
-          </div>
-
-          <div class="simple-flow" aria-label="STEP 03 사용 순서">
-            <div><b>① 같은 AI 대화창 유지</b>STEP 01과 STEP 02를 진행한 대화창을 그대로 엽니다.</div>
-            <div><b>② 프롬프트 복사</b>위의 ‘이력서·자소서 프롬프트 복사’ 버튼을 누릅니다.</div>
-            <div><b>③ 질문에 답하고 작성</b>필요한 질문에 하나씩 답한 뒤 AI가 안내하면 ‘작성해줘’라고 입력합니다.</div>
-          </div>
-
-          <div class="profile-note">
-            <b>결과는 이렇게 나옵니다</b><br>
-            이력서는 제공된 양식에 직접 옮겨 적기 쉬운 항목별 자료로 정리하고,
-            자기소개서는 4개 항목의 완성문으로 만들어 Google Docs에 그대로 붙여넣을 수 있게 합니다.
+          <div class="step-mini-panel">
+            <span class="copy-indicator" data-copy-indicator="3">○ 아직 복사 전</span>
+            <span class="step-short-help">같은 AI 대화창에 붙여넣어 서류를 완성하세요.</span>
           </div>
 
           <details class="prompt-details">
@@ -2498,31 +2765,25 @@ Career DNA가 현재 대화에 있다면
           </details>
         </section>
 
-        <section class="section" id="business-idea" data-step="4">
+        </div><!-- /PHASE 02: STEP 03 -->
+        <div class="step-group group-business" id="group-business" data-group="business">
+          <div class="group-heading">
+            <span class="group-number">03</span>
+            <div class="group-heading-content"><span class="group-heading-kicker">PHASE 03 · STEP 04 + 05 + 06</span><h2>아이디어에서 실행 페이지까지</h2><p>사업 아이템 → 사업계획서 → 랜딩페이지 → 구글폼 제출</p></div>
+            <span class="group-progress" data-group-progress="business">0 / 3 복사</span>
+          </div>
+        <section class="section is-locked" id="business-idea" data-step="4">
           <div class="section-head">
             <div>
               <span class="step-badge">STEP 04</span>
-              <h2>내 경험에서 사업 아이템 찾기</h2>
-              <p class="desc">Career DNA와 실제 경험을 바탕으로 내가 시작해볼 수 있는 현실적인 사업 아이디어를 찾습니다.</p>
+              <h2>사업 아이템 찾기</h2>
+              <p class="desc">나의 강점과 경험에서 사업 아이템을 찾아봅니다.</p>
             </div>
-            <button class="copy-btn primary-copy" data-copy="prompt-business-idea">사업 아이템 찾기 시작 →</button>
+            <button type="button" class="copy-btn primary-copy" data-copy="prompt-business-idea">프롬프트 복사하기 <span aria-hidden="true">→</span></button>
           </div>
-
-          <div class="tip">
-            <b>앞 단계에서 사용한 AI 대화창이 열려 있나요?</b><br>
-            가능하면 <b>같은 AI 대화창을 그대로 사용</b>하세요. Career DNA를 다시 복사해 붙여넣을 필요가 없습니다.
-          </div>
-
-          <div class="simple-flow" aria-label="STEP 04 사용 순서">
-            <div><b>① 같은 대화창 유지</b>STEP 01~03에서 사용한 AI 대화창을 그대로 엽니다.</div>
-            <div><b>② 프롬프트 복사</b>위의 ‘사업 아이템 찾기 시작’ 버튼을 누릅니다.</div>
-            <div><b>③ 질문에 하나씩 답하기</b>AI가 경험과 문제를 하나씩 물어보면 편하게 답합니다.</div>
-          </div>
-
-          <div class="profile-note">
-            <b>결과는 다음 단계에서 자동으로 이어집니다</b><br>
-            인터뷰가 끝나면 고객·문제·해결방법·수익방식·첫 검증 방법이 정리됩니다.
-            STEP 05에서는 이 결과를 다시 복사하지 않고 같은 대화창에서 바로 사업계획서로 이어갑니다.
+          <div class="step-mini-panel">
+            <span class="copy-indicator" data-copy-indicator="4">○ 아직 복사 전</span>
+            <span class="step-short-help">사업 대상 고객과 해결할 문제를 확인하세요.</span>
           </div>
 
           <details class="prompt-details">
@@ -3061,31 +3322,18 @@ AI 최종 결과에는 출력하지 마세요.
           </details>
         </section>
 
-        <section class="section" id="business-plan" data-step="5">
+        <section class="section is-locked" id="business-plan" data-step="5">
           <div class="section-head">
             <div>
               <span class="step-badge">STEP 05</span>
               <h2>사업계획서 만들기</h2>
-              <p class="desc">방금 찾은 사업 아이디어를 Problem · Solution · Scale-up · Team 구조의 한 장짜리 계획으로 정리합니다.</p>
+              <p class="desc">STEP 04의 사업 아이템으로 PSST 사업계획서를 만듭니다.</p>
             </div>
-            <button class="copy-btn primary-copy" data-copy="prompt-business-plan">PSST 사업계획서 만들기 →</button>
+            <button type="button" class="copy-btn primary-copy" data-copy="prompt-business-plan">프롬프트 복사하기 <span aria-hidden="true">→</span></button>
           </div>
-
-          <div class="tip">
-            <b>STEP 04 사업 아이템이 정리됐나요?</b><br>
-            이번에도 <b>같은 AI 대화창을 그대로 사용</b>하세요. 사업 아이템 결과를 다시 붙여넣을 필요가 없습니다.
-          </div>
-
-          <div class="simple-flow" aria-label="STEP 05 사용 순서">
-            <div><b>① 같은 대화창 유지</b>사업 아이템을 만든 AI 대화창을 그대로 둡니다.</div>
-            <div><b>② 프롬프트 복사</b>위의 ‘PSST 사업계획서 만들기’ 버튼을 누릅니다.</div>
-            <div><b>③ 그대로 붙여넣기</b>AI가 앞선 결과를 불러와 한 장짜리 사업계획서로 정리합니다.</div>
-          </div>
-
-          <div class="profile-note">
-            <b>PSST를 쉽게 보면</b><br>
-            <b>Problem</b>은 고객의 문제, <b>Solution</b>은 해결방법, <b>Scale-up</b>은 작게 검증하고 키워가는 방법,
-            <b>Team</b>은 내가 가진 경험과 실행할 수 있는 힘입니다.
+          <div class="step-mini-panel">
+            <span class="copy-indicator" data-copy-indicator="5">○ 아직 복사 전</span>
+            <span class="step-short-help">Problem · Solution · Scale-up · Team을 정리하세요.</span>
           </div>
 
           <details class="prompt-details">
@@ -3516,33 +3764,27 @@ FIRST ACTION
           </details>
         </section>
 
-        <section class="section" id="landing" data-step="6">
+        <section class="section is-locked" id="landing" data-step="6">
           <div class="section-head">
             <div>
               <span class="step-badge">STEP 06</span>
-              <h2>사업 아이템 랜딩페이지 만들기</h2>
-              <p class="desc">사업계획서 내용을 바탕으로 고객이 쉽게 이해할 수 있는 반응형 소개 페이지를 만듭니다.</p>
+              <h2>랜딩페이지 만들기</h2>
+              <p class="desc">STEP 04~05의 내용을 바탕으로 사업 소개 페이지를 만듭니다.</p>
             </div>
-            <button class="copy-btn primary-copy" data-copy="prompt-landing">랜딩페이지 만들기 →</button>
+            <button type="button" class="copy-btn primary-copy" data-copy="prompt-landing">프롬프트 복사하기 <span aria-hidden="true">→</span></button>
+          </div>
+          <div class="step-mini-panel">
+            <span class="copy-indicator" data-copy-indicator="6">○ 아직 복사 전</span>
+            <span class="step-short-help">AI에서 완성한 페이지를 확인한 뒤 구글폼에 제출하세요.</span>
           </div>
 
-          <div class="tip">
-            <b>STEP 05 사업계획서가 완성됐나요?</b><br>
-            <b>같은 AI 대화창을 계속 사용</b>하면 됩니다. 앞서 만든 사업 아이템과 사업계획서를 AI가 그대로 활용합니다.
+          
+          <div class="submission-card" data-form-card="6">
+            <div class="submission-icon" aria-hidden="true">↗</div>
+            <div class="submission-copy"><span class="submission-eyebrow">제출 체크포인트 · STEP 06</span>
+              <h3>최종 결과 · 구글폼 ③ 제출</h3><p>사업 아이템·사업계획서·랜딩페이지 결과를 최종 제출하세요.</p><small data-form-note="6">프롬프트 복사 후 구글폼 링크를 이용하세요.</small></div>
+            <a class="form-link is-disabled" data-form-link="6" aria-disabled="true" tabindex="-1" role="link">구글폼 03 제출하기 ↗</a>
           </div>
-
-          <div class="simple-flow" aria-label="STEP 06 사용 순서">
-            <div><b>① 같은 대화창 유지</b>사업 아이템과 계획서를 만든 대화창을 그대로 엽니다.</div>
-            <div><b>② 프롬프트 복사</b>위의 ‘랜딩페이지 만들기’ 버튼을 누릅니다.</div>
-            <div><b>③ 그대로 붙여넣기</b>AI가 사업 내용에 맞는 페이지 구성과 문구를 만들어줍니다.</div>
-          </div>
-
-          <div class="profile-note">
-            <b>초기 아이디어라는 점을 그대로 유지합니다</b><br>
-            확인되지 않은 고객 수, 매출, 후기, 별점, 파트너 등을 만들어내지 않고
-            실제로 확인된 내용과 검증 예정인 가설을 구분해 보여주도록 설계했습니다.
-          </div>
-
           <details class="prompt-details">
             <summary>AI에 전달되는 STEP 06 프롬프트 내용 보기</summary>
             <div class="prompt-wrap">
@@ -4787,6 +5029,7 @@ D. 사업 정보는 충분하지만 색상, 이미지 스타일, 레이아웃 �
             </div>
           </details>
         </section>
+        </div><!-- /PHASE 03: STEP 04–06 -->
       </div>
     </div>
   </main>
@@ -4794,8 +5037,8 @@ D. 사업 정보는 충분하지만 색상, 이미지 스타일, 레이아웃 �
   <div class="progress-dock" aria-hidden="true">
     <div class="progress-ring" id="progressRing"></div>
     <div class="progress-copy">
-      <b id="progressTitle">STEP 1 / 6</b>
-      <span id="progressLabel">커리어 인터뷰</span>
+      <b id="progressTitle">복사 0 / 6</b>
+      <span id="progressLabel">현재 위치 STEP 01</span>
     </div>
   </div>
 
@@ -4880,7 +5123,8 @@ D. 사업 정보는 충분하지만 색상, 이미지 스타일, 레이아웃 �
           button.innerHTML = original;
         }, 1400);
       }
-      showToast("프롬프트를 복사했습니다.");
+      recordPromptCopy(id);
+      showToast("복사 완료! AI에 붙여넣으세요. 다음 STEP이 열렸습니다.");
       return true;
     }
 
@@ -4918,7 +5162,7 @@ D. 사업 정보는 충분하지만 색상, 이미지 스타일, 레이아웃 �
     }
 
     Object.values(profileFields).forEach(input=>{
-      input?.addEventListener("input", updateCareerPrompt);
+      input?.addEventListener("input", ()=>{updateCareerPrompt(); markInterviewEdited();});
     });
     updateCareerPrompt();
 
@@ -4931,7 +5175,7 @@ D. 사업 정보는 충분하지만 색상, 이미지 스타일, 레이아웃 �
 
     $("#profileCopyBtn")?.addEventListener("click",()=>{
       updateCareerPrompt();
-      copyPrompt("prompt-career-interview", $("#profileCopyBtn"));
+      requestCopy("prompt-career-interview", $("#profileCopyBtn"));
     });
 
     $("#profileResetBtn")?.addEventListener("click",()=>{
@@ -4942,70 +5186,173 @@ D. 사업 정보는 충분하지만 색상, 이미지 스타일, 레이아웃 �
     });
 
     $$("[data-copy]").forEach(btn=>{
-      btn.addEventListener("click",()=>copyPrompt(btn.dataset.copy,btn));
+      btn.addEventListener("click",()=>requestCopy(btn.dataset.copy,btn));
     });
 
-    $("#scrollTopBtn").addEventListener("click",()=>window.scrollTo({top:0,behavior:"smooth"}));
+
+    // Google Form URLs: Paste your actual public form URLs between the quotes below.
+    // 구글폼 링크 입력 위치: STEP 02는 2번, STEP 06은 6번 따옴표 사이에 주소를 붙여넣으세요.
+    const GOOGLE_FORM_URLS = {
+      2: "https://forms.gle/tkdMLY2fFvsUMdg97", // 예: "https://forms.gle/your-career-dna-form"
+      6: "https://forms.gle/VYBJDWpjQWXWtm2e7"  // 예: "https://forms.gle/your-final-form"
+    };
 
     const sections = $$(".section[data-step]");
     const navLinks = $$(".nav-link");
     const progressRing = $("#progressRing");
     const progressTitle = $("#progressTitle");
     const progressLabel = $("#progressLabel");
-
-    function updateCurrent(){
-      let current = sections[0];
-      const y = window.scrollY + 150;
-      sections.forEach(s=>{
-        if(s.offsetTop <= y) current = s;
-      });
-
-      const id = current.id;
-      const step = Number(current.dataset.step || 1);
-      const activeLink = navLinks.find(a=>a.getAttribute("href") === "#" + id);
-
-      navLinks.forEach(a=>a.classList.toggle("active",a===activeLink));
-
-      const label = activeLink ? activeLink.innerText.replace(/^\d+\s*/,"").trim() : "";
-      const percent = Math.round((step / sections.length) * 100);
-      progressRing.style.setProperty("--p", percent);
-      progressTitle.textContent = `STEP ${step} / ${sections.length}`;
-      progressLabel.textContent = label || current.querySelector("h2")?.textContent || "";
-
-      document.body.dataset.currentPrompt = current.querySelector("[data-copy]")?.dataset.copy
-        || (current.id === "career-interview" ? "prompt-career-interview" : "");
+    const stepNames = {1:"커리어 인터뷰",2:"Career DNA 결과",3:"이력서·자소서",4:"사업 아이템",5:"사업계획서",6:"랜딩페이지"};
+    const promptStep = {"prompt-career-interview":1,"prompt-career-result":2,"prompt-resume":3,"prompt-business-idea":4,"prompt-business-plan":5,"prompt-landing":6};
+    const groupSteps = {career:[1,2],resume:[3],business:[4,5,6]};
+    // 기존 사이트에서 복사했던 기록만 이어받습니다. 결과 확인 버튼 기록은 사용하지 않습니다.
+    const storageKey = "career-prompt-hub-ui-v2";
+    function readUIState(){
+      try{
+        const saved=JSON.parse(localStorage.getItem(storageKey)||"{}");
+        return {copied:saved.copied && typeof saved.copied==="object"?saved.copied:{},lastCopied:Number(saved.lastCopied)||0};
+      }catch(e){return {copied:{},lastCopied:0}}
     }
-
-    window.addEventListener("scroll",updateCurrent,{passive:true});
-    updateCurrent();
-
-    $("#copyCurrentBtn").addEventListener("click",()=>{
-      const id = document.body.dataset.currentPrompt;
-      if(id) copyPrompt(id,null);
-      else showToast("현재 복사할 프롬프트가 없습니다.");
-    });
-
-    const revealObserver = new IntersectionObserver(entries=>{
-      entries.forEach(entry=>{
-        if(entry.isIntersecting) entry.target.classList.add("reveal");
-      });
-    },{threshold:.08});
-
-    $$(".section").forEach(s=>revealObserver.observe(s));
-
-    const navObserver = new IntersectionObserver(entries=>{
-      entries.forEach(entry=>{
-        if(entry.isIntersecting){
-          const link = navLinks.find(a=>a.getAttribute("href")==="#" + entry.target.id);
-          if(link){
-            navLinks.forEach(a=>a.classList.remove("active"));
-            link.classList.add("active");
-          }
+    const uiState=readUIState();
+    let interviewNeedsRecopy=false;
+    function saveUIState(){try{localStorage.setItem(storageKey,JSON.stringify(uiState))}catch(e){}}
+    const safeStep = value => Number.isInteger(Number(value)) && Number(value)>=1 && Number(value)<=6?Number(value):0;
+    const started = () => uiState.copied[1]===true;
+    // 순서대로 복사했는지만 확인: STEP 01 → 02 → 03 → 04 → 05 → 06.
+    function unlockInfo(step){
+      if(step===1)return {open:true};
+      for(let previous=1;previous<step;previous++){
+        if(uiState.copied[previous]!==true){
+          const prevSection=sections.find(s=>Number(s.dataset.step)===previous);
+          return {open:false,text:`STEP ${String(previous).padStart(2,"0")}의 프롬프트부터 복사하세요.`,target:prevSection?`#${prevSection.id}`:"#career-interview"};
         }
+      }
+      return {open:true};
+    }
+    function recordPromptCopy(id){
+      const step=safeStep(promptStep[id]);if(!step)return;
+      uiState.copied[step]=true;uiState.lastCopied=step;
+      if(step===1)interviewNeedsRecopy=false;
+      saveUIState();updateStepUI();
+    }
+    function markInterviewEdited(){
+      if(started()){interviewNeedsRecopy=true;updateStepUI();}
+    }
+    function formUrl(step){
+      const link=(GOOGLE_FORM_URLS[step]||"").trim();
+      try {const parsed=new URL(link);return parsed.protocol==="https:"?parsed.href:"";}catch(e){return "";}
+    }
+    function updateForms(){
+      [2,6].forEach(step=>{
+        const link=$(`[data-form-link="${step}"]`),note=$(`[data-form-note="${step}"]`),card=$(`[data-form-card="${step}"]`);
+        if(!link||!note||!card)return;
+        const copied=uiState.copied[step]===true && unlockInfo(step).open;
+        const url=formUrl(step);
+        const canOpen=copied && !!url;
+        if(canOpen){link.href=url;link.target="_blank";link.rel="noopener noreferrer";link.removeAttribute("aria-disabled");link.removeAttribute("tabindex");}
+        else{link.removeAttribute("href");link.removeAttribute("target");link.setAttribute("aria-disabled","true");link.tabIndex=-1;}
+        link.classList.toggle("is-disabled",!canOpen);
+        card.classList.toggle("is-ready",canOpen);
+        note.textContent=!copied?`STEP ${String(step).padStart(2,"0")} 프롬프트를 복사하면 제출 버튼이 열립니다.`:!url?"운영자가 구글폼 주소를 등록하면 제출 버튼을 사용할 수 있습니다.":"AI에서 작성된 결과를 확인한 뒤 눌러 제출하세요.";
       });
-    },{rootMargin:"-25% 0px -60% 0px",threshold:0});
+    }
+    function updateStepUI(){
+      // 진행 수치는 AI 결과 완료가 아니라 프롬프트를 복사한 횟수(고유 STEP)입니다.
+      const totalCopied=[1,2,3,4,5,6].filter(step=>uiState.copied[step]===true && unlockInfo(step).open).length;
+      sections.forEach(section=>{
+        const step=Number(section.dataset.step),locked=!unlockInfo(step).open;
+        section.classList.toggle("is-locked",locked);
+        section.setAttribute("aria-label",locked?`STEP ${String(step).padStart(2,"0")} ${stepNames[step]} 잠김`:`STEP ${String(step).padStart(2,"0")} ${stepNames[step]}`);
+        Array.from(section.children).forEach(child=>{
+          if(child.classList.contains("section-head"))return;
+          if(locked)child.setAttribute("inert","");else child.removeAttribute("inert");
+        });
+        const copy=section.querySelector("[data-copy]");
+        if(copy){copy.disabled=locked;copy.setAttribute("aria-disabled",String(locked));}
+      });
+      $$('[data-nav-state]').forEach(el=>{
+        const step=Number(el.dataset.navState);
+        const done=uiState.copied[step]===true && unlockInfo(step).open;
+        el.textContent=done?"✓":unlockInfo(step).open?"○":"🔒";
+        el.classList.toggle("is-complete",done);
+        el.setAttribute("aria-label",done?"프롬프트 복사 완료":unlockInfo(step).open?"복사 전":"잠긴 단계");
+      });
+      navLinks.forEach(a=>{
+        const section=$(a.getAttribute("href")||"");
+        if(!section||!section.dataset.step)return;
+        const locked=!unlockInfo(Number(section.dataset.step)).open;
+        a.classList.toggle("is-locked",locked);a.setAttribute("aria-disabled",String(locked));
+        if(locked)a.tabIndex=-1;else a.removeAttribute("tabindex");
+      });
+      $$('.roadmap-item').forEach((a,index)=>{
+        const locked=index===1?!unlockInfo(3).open:index===2?!unlockInfo(4).open:false;
+        a.classList.toggle("is-locked",locked);a.setAttribute("aria-disabled",String(locked));
+        if(locked)a.tabIndex=-1;else a.removeAttribute("tabindex");
+      });
+      $$('[data-copy-indicator]').forEach(el=>{
+        const step=Number(el.dataset.copyIndicator);
+        const copied=uiState.copied[step]===true,dirty=step===1&&interviewNeedsRecopy;
+        el.textContent=dirty?"! 내용 변경 · 다시 복사":copied?"✓ 복사 완료":"○ 복사 전";
+        el.classList.toggle("is-copied",copied&&!dirty);el.classList.toggle("is-dirty",dirty);
+      });
+      Object.entries(groupSteps).forEach(([group,steps])=>{
+        const done=steps.filter(step=>uiState.copied[step]===true && unlockInfo(step).open).length;
+        const value=`${done} / ${steps.length} 복사`;
+        const box=$(`[data-group-progress="${group}"]`),link=$(`[data-group-count="${group}"]`);
+        if(box){box.textContent=value;box.classList.toggle("is-complete",done===steps.length)}
+        if(link)link.textContent=value;
+      });
+      const last=uiState.lastCopied;
+      $("#lastCopiedPrompt").textContent=last?`최근 복사: STEP ${String(last).padStart(2,"0")} · ${stepNames[last]}`:"최근 복사: 아직 없음";
+      $("#sessionStatus").classList.toggle("is-copied",!!last);
+      const next=[1,2,3,4,5,6].find(step=>!uiState.copied[step]);
+      $("#nextAction").textContent=next?`다음: STEP ${String(next).padStart(2,"0")} 프롬프트 복사`:`모든 STEP 프롬프트 복사 완료 · 구글폼 최종 제출`;
+      const currentStep=Number(document.body.dataset.currentStep)||1;
+      progressRing.style.setProperty("--p",Math.round(totalCopied/6*100));
+      progressTitle.textContent=`복사 ${totalCopied} / 6`;
+      progressLabel.textContent=`현재 위치 STEP ${String(currentStep).padStart(2,"0")}`;
+      updateForms();
+    }
+    function updateCurrent(){
+      let current=sections[0];
+      const y=window.scrollY+165;
+      sections.forEach(s=>{if(s.getBoundingClientRect().top+window.scrollY<=y)current=s});
+      const step=Number(current.dataset.step||1);
+      document.body.dataset.currentStep=String(step);
+      const activeLink=navLinks.find(a=>a.getAttribute("href")==="#"+current.id);
+      navLinks.forEach(a=>a.classList.toggle("active",a===activeLink));
+      document.body.dataset.currentPrompt=current.querySelector("[data-copy]")?.dataset.copy||(current.id==="career-interview"?"prompt-career-interview":"");
+      progressLabel.textContent=`현재 위치 STEP ${String(step).padStart(2,"0")}`;
+    }
+    function requestCopy(id,btn){
+      const step=safeStep(promptStep[id]);
+      if(!step)return showToast("복사할 프롬프트를 찾지 못했습니다.");
+      const info=unlockInfo(step);
+      if(!info.open){
+        showToast(info.text||"먼저 앞 단계의 프롬프트를 복사해주세요.");
+        $(info.target)?.scrollIntoView({behavior:"smooth",block:"start"});
+        return;
+      }
+      copyPrompt(id,btn);
+    }
+    $$('[data-form-link]').forEach(link=>link.addEventListener("click",e=>{
+      if(link.classList.contains("is-disabled")){e.preventDefault();showToast("해당 STEP 프롬프트 복사 및 구글폼 링크 등록이 필요합니다.");}
+    }));
+    [...navLinks,...$$('.roadmap-item')].forEach(a=>a.addEventListener('click',e=>{
+      if(a.getAttribute('aria-disabled')==='true'){
+        e.preventDefault();showToast("잠긴 단계입니다. 먼저 앞 단계의 프롬프트를 복사하세요.");
+      }
+    }));
+    window.addEventListener("scroll",updateCurrent,{passive:true});
+    window.addEventListener("resize",updateCurrent,{passive:true});
+    updateCurrent();updateStepUI();
+    if(typeof IntersectionObserver!=="undefined"){
+      const revealObserver=new IntersectionObserver(entries=>{
+        entries.forEach(entry=>{if(entry.isIntersecting)entry.target.classList.add("reveal")});
+      },{threshold:.04});
+      $$(".section").forEach(s=>revealObserver.observe(s));
+    }else{$$(".section").forEach(s=>s.classList.add("reveal"));}
 
-    sections.forEach(s=>navObserver.observe(s));
   </script>
 </body>
 </html>
