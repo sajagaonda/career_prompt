@@ -5888,8 +5888,14 @@ D. 사업 정보는 충분하지만 색상, 이미지 스타일, 레이아웃 �
         const section=$(a.getAttribute("href")||"");
         if(!section||!section.dataset.step)return;
         const locked=!unlockInfo(Number(section.dataset.step)).open;
-        a.classList.toggle("is-locked",locked);a.setAttribute("aria-disabled",String(locked));
-        if(locked)a.tabIndex=-1;else a.removeAttribute("tabindex");
+        // PROGRESS는 탐색 메뉴입니다. 잠긴 STEP도 정확한 위치까지 이동할 수 있게 합니다.
+        // STEP 내부의 프롬프트/복사 버튼 잠금은 위 sections.forEach에서 그대로 유지합니다.
+        a.classList.toggle("is-locked",locked);
+        a.dataset.locked=String(locked);
+        a.setAttribute("aria-disabled","false");
+        a.removeAttribute("tabindex");
+        if(locked)a.title="이동 가능 · 앞 단계 프롬프트를 복사하면 내용이 열립니다.";
+        else a.removeAttribute("title");
       });
       $$('.roadmap-item').forEach(a=>{
         const group=a.getAttribute("href");
@@ -5924,12 +5930,18 @@ D. 사업 정보는 충분하지만 색상, 이미지 스타일, 레이아웃 �
     }
     function updateCurrent(){
       let current=sections[0];
-      const y=window.scrollY+165;
+      // 앵커 이동 위치는 html scroll-padding(92px) + section scroll-margin(100px).
+      // 이전의 +165px 기준은 실제 도착 위치(약 192px)보다 작아서,
+      // 클릭한 STEP이 아니라 바로 이전 STEP을 선택 표시하는 오류가 있었습니다.
+      const rootPadding=parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop)||0;
+      const sectionMargin=parseFloat(getComputedStyle(sections[0]).scrollMarginTop)||0;
+      const y=window.scrollY+rootPadding+sectionMargin+12;
       sections.forEach(s=>{if(s.getBoundingClientRect().top+window.scrollY<=y)current=s});
-      const step=Number(current.dataset.step||1);
+      const step=Number(current.dataset.step??0);
       document.body.dataset.currentStep=String(step);
       const submitGroup=$("#group-submit");
-      const atSubmit=!!submitGroup && submitGroup.getBoundingClientRect().top<=Math.min(460,window.innerHeight*.58);
+      // 마지막 제출 묶음이 단지 화면 아래쪽에 보인다는 이유로 조기 선택되지 않도록 합니다.
+      const atSubmit=!!submitGroup && submitGroup.getBoundingClientRect().top<=rootPadding+sectionMargin+12;
       const activeLink=navLinks.find(a=>a.getAttribute("href")===(atSubmit?"#group-submit":"#"+current.id));
       navLinks.forEach(a=>a.classList.toggle("active",a===activeLink));
       document.body.dataset.currentPrompt=current.querySelector("[data-copy]")?.dataset.copy||(current.id==="career-interview"?"prompt-career-interview":"");
