@@ -1025,6 +1025,35 @@ footer{color:#60718a;border-top-color:#d6e1ee}
     .final-note{font-size:12px;line-height:1.6;color:#536b86;background:#f4f7fb;border-radius:9px;padding:11px 13px;margin:15px 0 0}
     @media(max-width:1130px){.roadmap{grid-template-columns:repeat(2,minmax(0,1fr))}}
     @media(max-width:650px){.roadmap{grid-template-columns:1fr}.final-action-grid{grid-template-columns:1fr}.final-action-card{padding:17px}.prompt-purpose{padding:10px 12px}.save-note{padding:12px}}
+
+    /* STEP 00 · ICE BREAKING — add-on, keeping STEP 01–06 intact */
+    .nav-group-label.icebreaking{background:#e7f5fb;color:#135b88}
+    .nav-group-label.icebreaking::before{background:#24a5c6}
+    .nav-link.icebreaking .nav-num{background:#dbf3f9;color:#176a8e}
+    .roadmap-item.icebreaking{grid-column:1 / -1;display:flex;align-items:center;flex-wrap:wrap;gap:9px 17px;border-top-color:#25a0bf;background:linear-gradient(115deg,#f0fcff,#fff)}
+    .roadmap-item.icebreaking .roadmap-count{margin-left:auto}
+    .step-group.group-icebreaking{--group-color:#157d9c;--group-tint:#ecfaff;--group-border:#bce6f2;background:#eefbff;border-color:#c9e9f2}
+    .group-icebreaking .group-number{background:#157d9c}
+    .ice-flow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px;margin:14px 0 16px}
+    .ice-flow-card{padding:14px 15px;border:1px solid #d3e5f1;border-radius:12px;background:#f8fbff;min-width:0}
+    .ice-flow-card b{display:block;color:#1c4c70;font-size:13px;margin-bottom:5px}
+    .ice-flow-card p{font-size:12px;line-height:1.65;color:#51677c;margin:0}
+    .ice-hint{padding:12px 15px;background:#eff8ff;border:1px solid #d0e7f9;border-radius:12px;color:#2e526d;font-size:13px;line-height:1.7;margin:13px 0}
+    .ice-hint strong{color:#125d85}
+    .ice-resume-link{color:#165db1;font-weight:900;text-underline-offset:3px}
+    /* STEP 00: emphasize the copy action; match other steps with a collapsible prompt preview. */
+    .ice-copy-cta{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;
+      padding:18px 19px;margin:4px 0 13px;border:1.5px solid #b8d5f8;border-radius:14px;
+      background:linear-gradient(110deg,#e8f2ff 0%,#f5fbff 100%)}
+    .ice-copy-cta strong{display:block;color:#183f7d;font-size:16px;font-weight:900;line-height:1.45}
+    .ice-copy-cta p{margin:5px 0 0;color:#49627f;font-size:13px;line-height:1.55}
+    .ice-copy-cta .ice-copy-main{min-height:54px;padding:14px 22px;font-size:16px;white-space:normal;
+      justify-content:center;text-align:center;flex-shrink:0}
+    @media(max-width:650px){
+      .ice-flow{grid-template-columns:1fr;gap:8px}.ice-flow-card{padding:11px 12px}
+      .ice-copy-cta{padding:15px 13px;gap:13px}
+      .ice-copy-cta .ice-copy-main{width:100%;min-height:56px}
+    }
   </style>
 </head>
 <body>
@@ -1047,9 +1076,9 @@ footer{color:#60718a;border-top-color:#d6e1ee}
     <section class="hero">
       <div>
         <span class="eyebrow"><i></i> AI 커리어 리디자인 캠프</span>
-        <h1>프롬프트 복사로<br><span class="gradient-text">6단계 따라하기</span></h1>
+        <h1>아이스브레이킹부터<br><span class="gradient-text">7단계 따라하기</span></h1>
         <p>
-          STEP 01부터 순서대로 복사하세요. <strong>복사하면 다음 STEP이 자동으로 열립니다.</strong><br>AI와의 작업이 끝나면 다음 STEP으로 이동하세요.
+          STEP 00에서 증명사진을 만들고, STEP 01~06을 순서대로 진행하세요. <strong>프롬프트를 복사하면 다음 STEP이 자동으로 열립니다.</strong><br>처음 만든 증명사진은 STEP 03의 이력서에 활용합니다.
         </p>
 
       </div>
@@ -1064,15 +1093,17 @@ footer{color:#60718a;border-top-color:#d6e1ee}
           <div class="code-line b"></div>
           <div class="code-line c"></div>
         </div>
-        <small>처음이라도 괜찮습니다. 1단계는 기본정보를 적고 “완성된 프롬프트 복사하기” 버튼만 누르면 됩니다.</small>
+        <small>처음에는 AI로 증명사진을 만들어 보며 사용법을 익히고, STEP 01부터 커리어 탐색을 시작합니다.</small>
       </div>
     </section>
 
     <div class="layout">
       <nav class="side" aria-label="단계별 이동">
         <div class="side-title">Progress</div>
+        <div class="nav-group-label icebreaking">START · ICE BREAKING</div>
+        <a class="nav-link icebreaking active" href="#icebreaking"><span class="nav-num">00</span><span>아이스브레이킹 · 증명사진</span><span class="nav-state" data-nav-state="0">○</span></a>
         <div class="nav-group-label career">묶음 01 · 인터뷰 + 결과 (1–2)</div>
-        <a class="nav-link career active" href="#career-interview"><span class="nav-num">01</span><span>커리어 인터뷰</span><span class="nav-state" data-nav-state="1">○</span></a>
+        <a class="nav-link career" href="#career-interview"><span class="nav-num">01</span><span>커리어 인터뷰</span><span class="nav-state" data-nav-state="1">○</span></a>
         <a class="nav-link career" href="#career-result"><span class="nav-num">02</span><span>인터뷰 결과 확인</span><span class="nav-state" data-nav-state="2">○</span></a>
         <div class="nav-group-label resume">묶음 02 · 취업 서류 (3)</div>
         <a class="nav-link resume" href="#resume"><span class="nav-num">03</span><span>이력서·자소서</span><span class="nav-state" data-nav-state="3">○</span></a>
@@ -1087,8 +1118,9 @@ footer{color:#60718a;border-top-color:#d6e1ee}
       <div class="content">
 
         <div class="workflow-overview" aria-labelledby="workflow-title">
-          <div class="overview-heading"><h2 id="workflow-title">4개 묶음으로 진행합니다</h2><small>STEP 01~06은 순서대로 복사합니다</small></div>
+          <div class="overview-heading"><h2 id="workflow-title">시작 활동 + 4개 묶음으로 진행합니다</h2><small>STEP 00~06을 순서대로 복사합니다</small></div>
           <div class="roadmap">
+            <a href="#group-icebreaking" class="roadmap-item icebreaking"><span class="roadmap-kicker">START · STEP 00</span><span class="roadmap-title">ICE BREAKING · AI 증명사진</span><span class="roadmap-detail">AI 사용법 익히기 / 이력서 사진 준비</span><span class="roadmap-count" data-group-count="icebreaking">0 / 1 복사</span></a>
             <a href="#group-career" class="roadmap-item career"><span class="roadmap-kicker">PHASE 01 · STEP 01–02</span><span class="roadmap-title">인터뷰 → Career DNA</span><span class="roadmap-detail">12문항 인터뷰 → Career DNA 결과 보관</span><span class="roadmap-count" data-group-count="career">0 / 2 복사</span></a>
             <a href="#group-resume" class="roadmap-item resume"><span class="roadmap-kicker">PHASE 02 · STEP 03</span><span class="roadmap-title">이력서 · 자기소개서</span><span class="roadmap-detail">Career DNA로 이력서·자소서 작성</span><span class="roadmap-count" data-group-count="resume">0 / 1 복사</span></a>
             <a href="#group-business" class="roadmap-item business"><span class="roadmap-kicker">PHASE 03 · STEP 04–06</span><span class="roadmap-title">사업 아이템 → 계획서 → 랜딩페이지</span><span class="roadmap-detail">아이템 → 사업계획서 → 랜딩페이지 완성</span><span class="roadmap-count" data-group-count="business">0 / 3 복사</span></a>
@@ -1096,14 +1128,165 @@ footer{color:#60718a;border-top-color:#d6e1ee}
           </div>
           <aside class="quick-guide" aria-label="이용 가이드">
             <strong>이용 가이드</strong>
-            <p><b>① 기본정보 입력</b> → <b>② 프롬프트 복사 후 AI에 붙여넣기</b> → <b>③ AI 답변 확인 후 다음 STEP</b></p>
-            <small>STEP 02의 Career DNA 결과는 <b>개인 노트북 메모장에 저장</b>하세요. 노션·랜딩페이지 링크 제출은 마지막 <b>묶음 04</b>에서 진행합니다.</small>
+            <p><b>① STEP 00: AI에 얼굴사진 + 프롬프트 전달</b> → <b>② 증명사진 파일 저장</b> → <b>③ STEP 01부터 커리어 활동</b></p>
+            <small>STEP 00의 완성된 사진은 <b>내 기기에 이미지 파일로 저장</b>해 STEP 03 이력서에 활용하세요. STEP 02 Career DNA 결과도 <b>개인 노트북 메모장에 저장</b>합니다.</small>
           </aside>
           <div class="session-status" id="sessionStatus" aria-live="polite">
             <span class="session-dot" aria-hidden="true"></span><strong id="lastCopiedPrompt">최근 복사: 아직 없음</strong>
-            <span class="session-caption" id="nextAction">추천 순서: STEP 01부터 시작</span>
+            <span class="session-caption" id="nextAction">추천 순서: STEP 00부터 시작</span>
           </div>
         </div>
+
+        <!-- STEP 00: ICE BREAKING (the operator inserts the photo-generation prompt below) -->
+        <div class="step-group group-icebreaking" id="group-icebreaking" data-group="icebreaking">
+          <div class="group-heading">
+            <span class="group-number">00</span>
+            <div class="group-heading-content">
+              <span class="group-heading-kicker">START · ICE BREAKING · STEP 00</span>
+              <h2>AI 아이스브레이킹</h2>
+              <p>본격적인 커리어 활동 전, 내 사진을 증명사진으로 바꾸며 AI와 친해지는 워밍업입니다.</p>
+            </div>
+            <span class="group-progress" data-group-progress="icebreaking">0 / 1 복사</span>
+          </div>
+          <section class="section" id="icebreaking" data-step="0">
+            <div class="section-head">
+              <div>
+                <span class="step-badge">STEP 00 · ICE BREAKING</span>
+                <h2>내 얼굴사진으로 AI 증명사진 만들기</h2>
+                <p class="desc">얼굴사진 준비 → AI에 사진과 프롬프트 전달 → 증명사진 만들고 저장하기</p>
+              </div>
+            </div>
+            <div class="prompt-purpose"><span class="purpose-label">이 활동이 하는 일</span><p>AI 이미지 생성 도구에 내 사진과 프롬프트를 함께 전달해 증명사진을 만듭니다. 완성된 사진은 STEP 03 이력서 제작에 활용할 예정입니다.</p></div>
+            <div class="ice-flow" aria-label="증명사진 만들기 순서">
+              <div class="ice-flow-card"><b>01 · 사진 준비</b><p>내 얼굴이 잘 보이는 사진을 준비하고 AI 대화창에 첨부합니다.</p></div>
+              <div class="ice-flow-card"><b>02 · 프롬프트 전달</b><p>아래 버튼으로 복사하여 같은 AI 대화창에 붙여넣습니다.</p></div>
+              <div class="ice-flow-card"><b>03 · 결과 저장</b><p>완성된 증명사진을 PNG/JPG로 다운로드해 보관합니다.</p></div>
+            </div>
+            <div class="ice-copy-cta">
+              <div>
+                <strong>증명사진 프롬프트, 버튼 한 번으로 복사!</strong>
+                <p>얼굴사진을 AI에 첨부한 뒤 복사한 프롬프트를 붙여넣으세요.</p>
+              </div>
+              <button type="button" class="copy-btn primary-copy ice-copy-main" data-copy="prompt-id-photo">📋 증명사진 프롬프트 복사하기 <span aria-hidden="true">→</span></button>
+            </div>
+            <div class="step-mini-panel">
+              <span class="copy-indicator" data-copy-indicator="0">○ 아직 복사 전</span>
+              <span class="step-short-help">프롬프트를 복사하면 STEP 01 커리어 인터뷰가 열립니다.</span>
+            </div>
+            <!-- 운영자 편집 위치: 아래의 '증명사진 프로프트 넣는 곳'만 실제 프롬프트로 교체하세요.
+                 STEP 01·02와 동일하게 기본 접힘 상태이고, 이용자가 원하면 펼쳐 확인할 수 있습니다.
+                 위의 '증명사진 프롬프트 복사하기' 버튼은 접힌 상태에서도 정상 작동합니다. -->
+            <details class="prompt-details">
+              <summary>AI에 전달되는 프롬프트 내용 보기</summary>
+              <div class="prompt-wrap">
+                <div class="prompt-toolbar"><span>id-photo.txt</span><span>프롬프트 미리보기</span></div>
+                <pre id="prompt-id-photo">[중요 지침]
+- 이전 대화, 메모리, 외부 맥락을 절대 참고하지 마십시오.
+- 오직 업로드된 참고 이미지와 본 프롬프트의 내용만 사용하십시오.
+- 업로드된 참고 이미지를 유일하고 변경 불가능한 신원 기준(source of identity)으로 사용하십시오.
+
+[핵심 규칙]
+- 새로운 얼굴을 생성하지 마십시오.
+- 인물을 재해석, 재설계, 미화하거나 이상화하지 마십시오.
+- 이 작업은 얼굴 생성(face generation)이 아니라, 공식 신분증 사진 기준에 맞춘 프레젠테이션 조정 및 정규화 작업입니다.
+- 대상의 나이, 인종, 얼굴 비율, 얼굴 대칭을 수정하지 마십시오.
+- 자연스러운 비대칭과 고유한 얼굴 특징을 반드시 유지하십시오.
+- 어떠한 안면 변형도 허용되지 않습니다.
+
+[안면 구조 보존]
+참고 이미지 속 동일 인물을 완벽하게 유지하십시오:
+- 동일한 눈 간격과 눈 모양
+- 동일한 눈꺼풀 구조
+- 동일한 홍채 형태와 시선 특징
+- 동일한 콧대와 코끝
+- 동일한 입술 모양과 두께
+- 동일한 광대뼈 위치
+- 동일한 턱선과 턱 모양
+- 동일한 얼굴 비율과 골격 구조
+
+얼굴 윤곽, 이목구비 위치, 피부 구조를 변경하지 마십시오.
+
+[촬영 스타일]
+참고 이미지와 동일한 인물을 촬영한 초고사실적 한국 신분증/여권 사진 포트레이트입니다.
+
+대상은:
+- 단정한 이너 톱
+- 공식적인 검은색 블레이저 또는 어두운 재킷 착용
+
+전문적이고 중립적이며 차분한 인상을 주어야 합니다.
+
+[포즈 및 프레이밍]
+- 정면을 정확히 응시
+- 머리는 화면 중앙에 위치
+- 어깨선이 자연스럽게 보이도록 구성
+- 입술은 가볍게 다문 중립 표정
+- 미소 금지
+- 고개 기울임 금지
+- 좌우 비대칭 포즈 금지
+- 시선 흔들림 금지
+
+한국 공식 신분증/여권 사진 규격처럼:
+- 머리 중심 정렬
+- 눈 수평 정렬
+- 머리 위 적절한 여백 유지
+- 어깨가 충분히 보이도록 구성
+
+[헤어스타일]
+- 자연스러운 검은색 또는 짙은 갈색 머리
+- 5:5 가르마 또는 약간 옆가르마
+- 머리는 뒤로 정리하거나 어깨 뒤로 자연스럽게 넘김
+- 잔머리 최소화
+- 과장된 볼륨 금지
+- 실제 머리카락 질감과 밀도 유지
+
+[피부 및 디테일]
+- 자연스러운 한국인 피부 톤 유지
+- 과도한 미백 금지
+- 인위적 밝기 보정 금지
+- 미세한 모공과 피부 질감 유지
+- 자연스러운 눈 밑 음영 유지
+- 미세한 피부 결 보존
+- 피부 스무딩 금지
+- AI 뷰티 보정 금지
+- 플라스틱 피부 금지
+
+[메이크업]
+- 최소한의 자연스러운 메이크업만 허용
+- 과한 화장 금지
+- 진한 립스틱 금지
+- 글로시한 입술 금지
+- 자연스러운 연핑크/로즈톤 허용
+- 실제 입술 주름과 질감 유지
+
+[조명 및 촬영]
+- 균일한 스튜디오 조명
+- 부드러운 정면광
+- 강한 그림자 제거
+- 드라마틱한 대비 금지
+- 순백색 배경 (#FFFFFF)
+- 고해상도 DSLR 품질
+- 실제 같은 색 균형
+- 영화적 스타일 금지
+- 예술적 스타일링 금지
+
+[렌즈 및 원근]
+- 실제 85mm~105mm 인물 렌즈 느낌 사용
+- 광각 왜곡 금지
+- 얼굴 압축 왜곡 금지
+
+[최종 목표]
+최종 결과물은 실제 한국 여권 또는 공인 신분증 사진과 구별이 불가능해야 합니다.
+
+AI 생성 이미지처럼 보이면 안 됩니다.
+실제 DSLR로 촬영한 동일 인물의 증명사진처럼 보여야 합니다.
+
+[금지 사항 / 부정 프롬프트]
+만화, 애니메이션, 일러스트, 페인팅, 뷰티 필터, 피부 스무딩, 과도한 리터칭, 흐림, 저해상도, 드라마틱 조명, 강한 그림자, 측면 얼굴, 고개 기울임, 미소, 벌린 입, 과장된 표정, 패션 포즈, 캐주얼 의상, 액세서리, 귀걸이, 목걸이, 피어싱, 안경, 선글라스, 진한 메이크업, 컨투어링, 글로시 립, 인조 속눈썹, 염색모, 잔머리, 지저분한 머리, 배경 물체, 유색 배경, 회색 배경, 그라데이션 배경, 잡지 스타일 편집, 예술적 연출</pre>
+              </div>
+            </details>
+            <div class="ice-hint"><strong>활용 팁</strong> · 이 페이지는 프롬프트 복사 안내용입니다. 사진 생성은 이미지 생성이 가능한 AI에서 진행하세요. 완성된 이미지 파일은 직접 저장해 두었다가 <a class="ice-resume-link" href="#resume">STEP 03 · 이력서</a>에서 사용합니다. <strong>개인 얼굴사진은 본인이 동의한 AI 서비스에만 업로드하세요.</strong></div>
+          </section>
+        </div><!-- /STEP 00 -->
 
         <div class="step-group group-career" id="group-career" data-group="career">
           <div class="group-heading">
@@ -2396,6 +2579,7 @@ Google Form에 그대로 복사하여 붙여넣을 수 있는
             <button type="button" class="copy-btn primary-copy" data-copy="prompt-resume">프롬프트 복사하기 <span aria-hidden="true">→</span></button>
           </div>
           <div class="prompt-purpose"><span class="purpose-label">이 프롬프트가 하는 일</span><p>Career DNA에서 찾은 경험과 강점을 바탕으로 이력서와 자기소개서를 작성합니다. 나의 실제 경력이 잘 드러나도록 내용을 정리합니다.</p></div>
+          <div class="ice-hint"><strong>STEP 00 증명사진 활용</strong> · 아이스브레이킹에서 만든 증명사진을 이력서에 사용할 수 있습니다. 저장해 둔 PNG/JPG 파일을 서류 제작 중인 AI 대화창에 <strong>별도로 첨부</strong>하거나, 완성된 이력서 문서에 직접 삽입하세요. (프롬프트 복사만으로 사진 파일이 자동 첨부되지는 않습니다.)</div>
           <div class="step-mini-panel">
             <span class="copy-indicator" data-copy-indicator="3">○ 아직 복사 전</span>
             <span class="step-short-help">같은 AI 대화창에 붙여넣어 서류를 완성하세요.</span>
@@ -5444,8 +5628,8 @@ D. 사업 정보는 충분하지만 색상, 이미지 스타일, 레이아웃 �
   <div class="progress-dock" aria-hidden="true">
     <div class="progress-ring" id="progressRing"></div>
     <div class="progress-copy">
-      <b id="progressTitle">복사 0 / 6</b>
-      <span id="progressLabel">현재 위치 STEP 01</span>
+      <b id="progressTitle">복사 0 / 7</b>
+      <span id="progressLabel">현재 위치 STEP 00</span>
     </div>
   </div>
 
@@ -5482,6 +5666,10 @@ D. 사업 정보는 충분하지만 색상, 이미지 스타일, 레이아웃 �
 
       // 접혀 있는 <details> 안에서도 내용이 정상적으로 읽히도록 textContent 사용
       const text = (el.textContent || "").trim();
+      if(id === "prompt-id-photo" && text === "증명사진 프로프트 넣는 곳"){
+        showToast("운영자가 STEP 00 증명사진 프롬프트를 입력한 후 사용할 수 있습니다.");
+        return false;
+      }
       if(!text){
         showToast("프롬프트를 만드는 중 문제가 발생했습니다. 페이지를 새로고침해주세요.");
         return false;
@@ -5517,7 +5705,9 @@ D. 사업 정보는 충분하지만 색상, 이미지 스타일, 레이아웃 �
       }
 
       if(!copied){
-        showToast("자동 복사가 차단되었습니다. 프롬프트 내용을 열어 직접 복사해주세요.");
+        showToast(id === "prompt-id-photo"
+          ? "복사가 차단되었습니다. 브라우저 설정을 확인하고 복사 버튼을 다시 눌러주세요."
+          : "자동 복사가 차단되었습니다. 프롬프트 내용을 열어 직접 복사해주세요.");
         return false;
       }
 
@@ -5609,9 +5799,9 @@ D. 사업 정보는 충분하지만 색상, 이미지 스타일, 레이아웃 �
     const progressRing = $("#progressRing");
     const progressTitle = $("#progressTitle");
     const progressLabel = $("#progressLabel");
-    const stepNames = {1:"커리어 인터뷰",2:"Career DNA 결과",3:"이력서·자소서",4:"사업 아이템",5:"사업계획서",6:"랜딩페이지"};
-    const promptStep = {"prompt-career-interview":1,"prompt-career-result":2,"prompt-resume":3,"prompt-business-idea":4,"prompt-business-plan":5,"prompt-landing":6};
-    const groupSteps = {career:[1,2],resume:[3],business:[4,5,6]};
+    const stepNames = {0:"AI 증명사진 아이스브레이킹",1:"커리어 인터뷰",2:"Career DNA 결과",3:"이력서·자소서",4:"사업 아이템",5:"사업계획서",6:"랜딩페이지"};
+    const promptStep = {"prompt-id-photo":0,"prompt-career-interview":1,"prompt-career-result":2,"prompt-resume":3,"prompt-business-idea":4,"prompt-business-plan":5,"prompt-landing":6};
+    const groupSteps = {icebreaking:[0],career:[1,2],resume:[3],business:[4,5,6]};
     // 기존 사이트에서 복사했던 기록만 이어받습니다. 결과 확인 버튼 기록은 사용하지 않습니다.
     const storageKey = "career-prompt-hub-ui-v2";
     function readUIState(){
@@ -5623,11 +5813,14 @@ D. 사업 정보는 충분하지만 색상, 이미지 스타일, 레이아웃 �
     const uiState=readUIState();
     let interviewNeedsRecopy=false;
     function saveUIState(){try{localStorage.setItem(storageKey,JSON.stringify(uiState))}catch(e){}}
-    const safeStep = value => Number.isInteger(Number(value)) && Number(value)>=1 && Number(value)<=6?Number(value):0;
+    const safeStep = value => value !== undefined && value !== null && Number.isInteger(Number(value)) && Number(value)>=0 && Number(value)<=6?Number(value):null;
     const started = () => uiState.copied[1]===true;
-    // 순서대로 복사했는지만 확인: STEP 01 → 02 → 03 → 04 → 05 → 06.
+    // STEP 00 → 01 → 02 → 03 → 04 → 05 → 06. 기존 STEP 01 완료자는 진행기록 유지.
     function unlockInfo(step){
-      if(step===1)return {open:true};
+      if(step===0)return {open:true};
+      if(uiState.copied[0]!==true && uiState.copied[1]!==true){
+        return {open:false,text:"먼저 STEP 00 증명사진 프롬프트를 복사하세요.",target:"#icebreaking"};
+      }
       for(let previous=1;previous<step;previous++){
         if(uiState.copied[previous]!==true){
           const prevSection=sections.find(s=>Number(s.dataset.step)===previous);
@@ -5637,7 +5830,7 @@ D. 사업 정보는 충분하지만 색상, 이미지 스타일, 레이아웃 �
       return {open:true};
     }
     function recordPromptCopy(id){
-      const step=safeStep(promptStep[id]);if(!step)return;
+      const step=safeStep(promptStep[id]);if(step===null)return;
       uiState.copied[step]=true;uiState.lastCopied=step;
       if(step===1)interviewNeedsRecopy=false;
       saveUIState();updateStepUI();
@@ -5672,7 +5865,7 @@ D. 사업 정보는 충분하지만 색상, 이미지 스타일, 레이아웃 �
     }
     function updateStepUI(){
       // 진행 수치는 AI 결과 완료가 아니라 프롬프트를 복사한 횟수(고유 STEP)입니다.
-      const totalCopied=[1,2,3,4,5,6].filter(step=>uiState.copied[step]===true && unlockInfo(step).open).length;
+      const totalCopied=[0,1,2,3,4,5,6].filter(step=>uiState.copied[step]===true && unlockInfo(step).open).length;
       sections.forEach(section=>{
         const step=Number(section.dataset.step),locked=!unlockInfo(step).open;
         section.classList.toggle("is-locked",locked);
@@ -5698,8 +5891,9 @@ D. 사업 정보는 충분하지만 색상, 이미지 스타일, 레이아웃 �
         a.classList.toggle("is-locked",locked);a.setAttribute("aria-disabled",String(locked));
         if(locked)a.tabIndex=-1;else a.removeAttribute("tabindex");
       });
-      $$('.roadmap-item').forEach((a,index)=>{
-        const locked=index===1?!unlockInfo(3).open:index===2?!unlockInfo(4).open:false;
+      $$('.roadmap-item').forEach(a=>{
+        const group=a.getAttribute("href");
+        const locked=group==="#group-career"?!unlockInfo(1).open:group==="#group-resume"?!unlockInfo(3).open:group==="#group-business"?!unlockInfo(4).open:false;
         a.classList.toggle("is-locked",locked);a.setAttribute("aria-disabled",String(locked));
         if(locked)a.tabIndex=-1;else a.removeAttribute("tabindex");
       });
@@ -5717,13 +5911,14 @@ D. 사업 정보는 충분하지만 색상, 이미지 스타일, 레이아웃 �
         if(link)link.textContent=value;
       });
       const last=uiState.lastCopied;
-      $("#lastCopiedPrompt").textContent=last?`최근 복사: STEP ${String(last).padStart(2,"0")} · ${stepNames[last]}`:"최근 복사: 아직 없음";
-      $("#sessionStatus").classList.toggle("is-copied",!!last);
-      const next=[1,2,3,4,5,6].find(step=>!uiState.copied[step]);
-      $("#nextAction").textContent=next?`다음: STEP ${String(next).padStart(2,"0")} 프롬프트 복사`:`모든 STEP 프롬프트 복사 완료 · 묶음 04에서 결과 링크 제출`;
-      const currentStep=Number(document.body.dataset.currentStep)||1;
-      progressRing.style.setProperty("--p",Math.round(totalCopied/6*100));
-      progressTitle.textContent=`복사 ${totalCopied} / 6`;
+      const hasLast=uiState.copied[last]===true;
+      $("#lastCopiedPrompt").textContent=hasLast?`최근 복사: STEP ${String(last).padStart(2,"0")} · ${stepNames[last]}`:"최근 복사: 아직 없음";
+      $("#sessionStatus").classList.toggle("is-copied",hasLast);
+      const next=[0,1,2,3,4,5,6].find(step=>!uiState.copied[step]);
+      $("#nextAction").textContent=next!==undefined?`다음: STEP ${String(next).padStart(2,"0")} 프롬프트 복사`:`모든 STEP 프롬프트 복사 완료 · 묶음 04에서 결과 링크 제출`;
+      const currentStep=Number(document.body.dataset.currentStep ?? "0");
+      progressRing.style.setProperty("--p",Math.round(totalCopied/7*100));
+      progressTitle.textContent=`복사 ${totalCopied} / 7`;
       progressLabel.textContent=`현재 위치 STEP ${String(currentStep).padStart(2,"0")}`;
       updateFinalLinks();
     }
@@ -5742,7 +5937,7 @@ D. 사업 정보는 충분하지만 색상, 이미지 스타일, 레이아웃 �
     }
     function requestCopy(id,btn){
       const step=safeStep(promptStep[id]);
-      if(!step)return showToast("복사할 프롬프트를 찾지 못했습니다.");
+      if(step===null)return showToast("복사할 프롬프트를 찾지 못했습니다.");
       const info=unlockInfo(step);
       if(!info.open){
         showToast(info.text||"먼저 앞 단계의 프롬프트를 복사해주세요.");
